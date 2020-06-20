@@ -58,6 +58,17 @@ Head.prototype.Die = function () {
         backLayer.addChild(head);
         head.addEventListener(LMouseEvent.MOUSE_DOWN,head_mousedown);
         head.addEventListener(LMouseEvent.MOUSE_UP,head_mouseup);
-    },5000);
+
+        head.ApplyRandForce()
+    },3000);
 
 };
+
+Head.prototype.ApplyRandForce = function () {
+    var rf = 40;
+    rvx = Math.floor(Math.random()*rf)+Math.floor(Math.random()*-rf);
+    rvy = -rf;
+    // rvy = Math.floor(Math.random()*rf)+Math.floor(Math.random()*-rf);
+    var v = new LGlobal.box2d.b2Vec2(rvx,rvy);
+    head.box2dBody.ApplyForce(v,head.box2dBody.GetWorldCenter());
+}

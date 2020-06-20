@@ -64,8 +64,9 @@ function gameInit(result) {
     var f = "幼圆";
     var c = "#000";
     var s = 15;
-    txt = new MiddleText(200, "↑试试拖动↑", 20, "#964B00", 1, f);
-    txt = new MiddleText(txt.y + txt.getHeight() * 2, "唐庆昌", 30, c, 1, f);
+    // txt = new MiddleText(200, "↑试试拖动↑", 20, "#964B00", 1, f);
+    // txt = new MiddleText(txt.y + txt.getHeight() * 2, "唐庆昌", 30, c, 1, f);
+    txt = new MiddleText(200, "唐庆昌", 20, c, 1, f);
     txt = new MiddleText(txt.y + txt.getHeight() * 2, "Programming,", s, c, 1, f);
     txt = new MiddleText(txt.y + txt.getHeight() * 2, "should be more than coding.", s, c, 1, f);
 
@@ -92,9 +93,9 @@ function gameInit(result) {
 
     ofs = 2
     txt = new NormalText(BACK_WIDTH * 0.03, btn.y + btn.getHeight() * ofs, "Skills:", s, c, 1, f);
-    txt = new NormalText(BACK_WIDTH * 0.03, txt.y + txt.getHeight() * ofs, "·Linux、Java", s, c, 1, f);
-    txt = new NormalText(BACK_WIDTH * 0.03, txt.y + txt.getHeight() * ofs, "·SpringBoot、SpringMVC、Mybatis、MySQL", s, c, 1, f);
-    txt = new NormalText(BACK_WIDTH * 0.03, txt.y + txt.getHeight() * ofs, "·SpringCloud、Docker", s, c, 1, f);
+    txt = new NormalText(BACK_WIDTH * 0.03, txt.y + txt.getHeight() * ofs, "·Java 85%", s, c, 1, f);
+    txt = new NormalText(BACK_WIDTH * 0.03, txt.y + txt.getHeight() * ofs, "·Python 5%", s, c, 1, f);
+    txt = new NormalText(BACK_WIDTH * 0.03, txt.y + txt.getHeight() * ofs, "·Golang 10%", s, c, 1, f);
 
     head = new Head(BACK_WIDTH / 2 - 10, backLayer.y + 100, imgList['head']);
     head.x = BACK_WIDTH * .5 - head.getWidth() * .5;
@@ -102,12 +103,8 @@ function gameInit(result) {
     head.addEventListener(LMouseEvent.MOUSE_UP, head_mouseup);
     backLayer.addChild(head);
 
-    // 为头像施加随机力
-    // var rf = 80;
-    // rvx = Math.floor(Math.random()*rf)+Math.floor(Math.random()*-rf);
-    // rvy = Math.floor(Math.random()*rf)+Math.floor(Math.random()*-rf);
-    // var v = new LGlobal.box2d.b2Vec2(rvx,rvy);
-    // head.box2dBody.ApplyForce(v,head.box2dBody.GetWorldCenter());
+    // 为头像施加力
+    head.ApplyRandForce();
 
     //Initial events.
     LGlobal.stage.addEventListener(LKeyboardEvent.KEY_DOWN, onkeydown);
@@ -140,7 +137,7 @@ function gameInit(result) {
 
 function postSolve() {
     if (head != null && !head.IsDie) {
-        if (head.HP <= 0) {
+        if (head.HP <= 1) {
             setTimeout(function () {
                 if (head != null && !head.IsDie) {
                     head.Die();
