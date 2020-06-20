@@ -79,14 +79,14 @@ function gameInit(result) {
     btn.x = BACK_WIDTH * .5;
     btn.y = txt.y + btn.height;
     btn.addEventListener(LMouseEvent.MOUSE_UP, function () {
-        window.open('../resume/resume.html');
+        window.open('https://tqccc.gitee.io/resume/resume.html');
     });
     backLayer.addChild(btn);
     var btn = new LButtonSample2("主页 ▶", 20);
     btn.x = BACK_WIDTH * .5 - btn.width * 1.2;
     btn.y = txt.y + btn.height;
     btn.addEventListener(LMouseEvent.MOUSE_UP, function () {
-        window.open('../index.html');
+        window.open('https://tqccc.gitee.io/');
     });
     backLayer.addChild(btn);
 
