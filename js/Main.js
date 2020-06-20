@@ -80,7 +80,7 @@ function gameInit(result) {
     btn.x = BACK_WIDTH * .5;
     btn.y = txt.y + btn.height;
     btn.addEventListener(LMouseEvent.MOUSE_UP, function () {
-        window.open('https://tqccc.gitee.io/resume/resume.html');
+        window.open('https://tqccc.gitee.io/gitbook/resume/resume.html');
     });
     backLayer.addChild(btn);
     var btn = new LButtonSample2("主页 ▶", 20);
