@@ -2,3 +2,5 @@
 
 使用 h5 游戏引擎 lufylegend 来制作  
 试试拖动二胡卵子~
+
+![animation](images\animation.gif)
